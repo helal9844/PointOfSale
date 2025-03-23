@@ -1,0 +1,18 @@
+<!-- <app-loader [isLoading]="isLoading"></app-loader> -->
+      <!-- <button (click)="showLoader()">Show Loader</button> -->
+
+<div *ngIf="!isLoggedIn; else mainContent">
+  <router-outlet></router-outlet>
+</div>
+
+<!-- Main layout after login -->
+<ng-template #mainContent>
+  <app-navbar></app-navbar>
+  <div class="main-container">
+    <app-sidebar (sidebarToggled)="toggleContentWidth($event)"></app-sidebar>
+    <div class="content"[class.expanded]="isSidebarCollapsed">
+      <router-outlet ></router-outlet>
+    </div>
+  </div>
+</ng-template>
+      
