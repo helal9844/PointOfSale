@@ -19,9 +19,9 @@ export class OrderService {
   createOrder(order: OrderHeader): Observable<OrderHeader> {
     return this.http.post<OrderHeader>(this.baseUrl, order);
   }
-  updateOrder(order: OrderHeader): Observable<OrderHeader> {
-    return this.http.put<OrderHeader>(`${this.baseUrl}/${order.id}`, order);
-  }
+  // updateOrder(order: OrderHeader): Observable<OrderHeader> {
+  //   return this.http.put<OrderHeader>(`${this.baseUrl}/${order.orderId}`, order);
+  // }
   deleteOrder(orderId: number): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/${orderId}`);
   }
