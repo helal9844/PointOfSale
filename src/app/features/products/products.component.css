@@ -1,0 +1,39 @@
+.container {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .header h2 {
+    margin: 0;
+  }
+  
+  .header-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  th .filter {
+    display: block;
+    width: 100%;
+}
+  
+  .full-width-table {
+    width: 100%;
+  }
+  i {
+    font-size: 1.2rem; 
+    display: inline-block;
+  }
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+ 
+  

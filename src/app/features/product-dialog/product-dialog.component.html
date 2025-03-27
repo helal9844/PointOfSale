@@ -1,0 +1,22 @@
+<h2 mat-dialog-title>{{ data.id ? 'Edit Product' : 'Add Product' }}</h2>
+<div mat-dialog-content>
+  <mat-form-field appearance="outline"class="full-width">
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="data.name">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline"class="full-width">
+    <mat-label>Price</mat-label>
+    <input matInput type="number" [(ngModel)]="data.price">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline"class="full-width">
+    <mat-label>Stock</mat-label>
+    <input matInput type="number" [(ngModel)]="data.stock">
+  </mat-form-field>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Save</button>
+</div>
