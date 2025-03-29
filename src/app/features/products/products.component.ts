@@ -14,7 +14,7 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements AfterViewInit {
-  displayedColumns: string[] = ['id', 'name', 'price', 'stock', 'category'];
+  displayedColumns: string[] = ['id', 'name', 'price', 'stock', 'category','actions'];
   filterValues = {    id: '',name: '',price: '',stock: '',category: ''}
   filterForm = new FormGroup({
     idFilter: new FormControl(''),
@@ -47,16 +47,33 @@ export class ProductsComponent implements AfterViewInit {
   }
   setupFilters() {
     this.allColumnsFilter.valueChanges.subscribe(value => {
-      this.dataSource.filter = value.trim().toLowerCase(); // Apply filter
+      this.dataSource.filter = value.trim().toLowerCase();
     });
   }
   addProduct() {
-    const product: Product = { id: 0, name: '', price: 0, stock: 0, categoryId: 1};
-    
+    const dialogRef = this.dialog.open(ProductDialogComponent, {
+      width: '400px',
+      data: { isEdit: false }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.loadProducts();
+      }
+    });
   }
 
   editProduct(product: Product) {
-  
+    const dialogRef = this.dialog.open(ProductDialogComponent, {
+      width: '400px',
+      data: { isEdit: true, product }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.loadProducts();
+      }
+    });
   }
 
   deleteProduct(id: number) {
@@ -65,10 +82,6 @@ export class ProductsComponent implements AfterViewInit {
     }
   }
   announceSortChange(sortState: Sort) {
-    // This example uses English messages. If your application supports
-    // multiple language, you would internationalize these strings.
-    // Furthermore, you can customize the message to add additional
-    // details about the values being sorted.
     if (sortState.direction) {
       this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
     } else {
@@ -92,9 +105,8 @@ export class ProductsComponent implements AfterViewInit {
   }
   
   exportTable() {
-    // Example: Export table data as CSV
     let csvContent = "data:text/csv;charset=utf-8,";
-    csvContent += "ID,Name,Price,Stock\n"; // Table Headers
+    csvContent += "ID,Name,Price,Stock\n";
   
     this.dataSource.data.forEach((row) => {
       csvContent += `${row.id},${row.name},${row.price},${row.stock}\n`;

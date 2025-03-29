@@ -19,12 +19,13 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-import { ReactiveFormsModule } from '@angular/forms'; // Import ReactiveFormsModule
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatSortModule } from '@angular/material/sort';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 @NgModule({
   declarations: [HomeComponent, ProductsComponent, CartComponent, CheckoutComponent, OrdersComponent, DashboardComponent, SalesComponent, CustomersComponent, ReportsComponent, CasherComponent, ProductDialogComponent],
   imports: [
-    MatSortModule,ReactiveFormsModule,CommonModule,RouterModule,FormsModule,MatButtonModule,MatDialogModule,MatPaginatorModule,MatFormFieldModule,MatTableModule,MatInputModule,
+    MatAutocompleteModule,MatSortModule,ReactiveFormsModule,CommonModule,RouterModule,FormsModule,MatButtonModule,MatDialogModule,MatPaginatorModule,MatFormFieldModule,MatTableModule,MatInputModule,
   ],
   exports:[HomeComponent]
 })
