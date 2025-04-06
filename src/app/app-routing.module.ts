@@ -18,10 +18,12 @@ import { NotFoundComponent } from './shared/components/errors/not-found/not-foun
 import { ServerErrorComponent } from './shared/components/errors/server-error/server-error.component';
 
 import { AuthGuard } from './core/guards/auth.guard';
+import { CategoriesComponent } from './features/categories/categories.component';
 const routes: Routes = [
   { path: '', redirectTo: 'Home' ,pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'products', component: ProductsComponent,canActivate: [AuthGuard]  },
+  { path: 'categories', component: CategoriesComponent,canActivate: [AuthGuard]  },
   { path: 'cart', component: CartComponent,canActivate: [AuthGuard]  },
   { path: 'checkout', component: CheckoutComponent,canActivate: [AuthGuard]  },
   { path: 'orders', component: OrdersComponent,canActivate: [AuthGuard]  },

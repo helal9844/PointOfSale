@@ -22,8 +22,10 @@ import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSortModule } from '@angular/material/sort';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { CategoriesComponent } from './categories/categories.component';
+import { CategoryDialogComponent } from './category-dialog/category-dialog.component';
 @NgModule({
-  declarations: [HomeComponent, ProductsComponent, CartComponent, CheckoutComponent, OrdersComponent, DashboardComponent, SalesComponent, CustomersComponent, ReportsComponent, CasherComponent, ProductDialogComponent],
+  declarations: [HomeComponent, ProductsComponent, CartComponent, CheckoutComponent, OrdersComponent, DashboardComponent, SalesComponent, CustomersComponent, ReportsComponent, CasherComponent, ProductDialogComponent, CategoriesComponent, CategoryDialogComponent],
   imports: [
     MatAutocompleteModule,MatSortModule,ReactiveFormsModule,CommonModule,RouterModule,FormsModule,MatButtonModule,MatDialogModule,MatPaginatorModule,MatFormFieldModule,MatTableModule,MatInputModule,
   ],

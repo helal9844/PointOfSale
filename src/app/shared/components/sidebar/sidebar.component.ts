@@ -33,6 +33,7 @@ constructor(private authService: AuthService){}
     { label: 'Dashboard', route: '/dashboard', active: true },
     { label: 'Sales', route: '/sales' },
     { label: 'Products', route: '/products' },
+    { label: 'Categories', route: '/categories' },
     { label: 'Customers', route: '/customers' },
     { label: 'Casher', route: '/casher' },
     { label: 'Reports', route: '/reports' },
